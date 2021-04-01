@@ -6,7 +6,7 @@ Specifies that the annotated field or method added to the class should be given 
 Ideally, When adding new fields or methods that are only used inside the mixin, it's always best to annotate them with `@Unique`. This avoids conflicts with other mods that may add another method with the same name.
 
 Example :-
-```
+```java
 @Mixin(Dummy.class)
 public class MixinDummy {
 	@Unique
@@ -19,9 +19,9 @@ public class MixinDummy {
 
 	@Inject(method = "target()V", at = @At(value = "INVOKE", target = "Lnet/example/Dummy;dummy()V"))
 	private void mixin(CallbackInfo ci) {
-    	while(dummyField < 10) {
-    		this.dummymethod(dummyField++);
-    	}
+		while(dummyField < 10) {
+			this.dummymethod(dummyField++);
+		}
 	}
 }
 ```
